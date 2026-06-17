@@ -472,8 +472,15 @@ async function processLinksOnPage(data) {
       let result;
       if (link.type === 'lecture') {
         result = await processLecture(finalUserId, courseSlug, link.itemId);
-      } else {
+      } else if (link.type === 'supplement') {
         result = await processSupplement(finalUserId, courseId, link.itemId);
+      } else {
+        // Skip ungradedLab, assignment-submission, and other types
+        result = {
+          success: true,
+          skipped: true,
+          error: `${link.type} - skipped (not supported)`
+        };
       }
 
       // Add result to list
