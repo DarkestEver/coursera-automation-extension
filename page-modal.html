@@ -1,0 +1,92 @@
+<!-- Page Modal - Injected into Coursera page -->
+<div id="coursera-automation-modal" style="display: none;">
+  <div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  ">
+    <div style="
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    ">
+      <!-- Header -->
+      <div style="
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        margin: -30px -30px 20px -30px;
+        border-radius: 12px 12px 0 0;
+        text-align: center;
+      ">
+        <h2 style="margin: 0; font-size: 24px;">Coursera Progress Automation</h2>
+      </div>
+
+      <!-- Content -->
+      <div id="modal-content">
+        <!-- Will be filled dynamically -->
+      </div>
+
+      <!-- Progress Bar -->
+      <div id="progress-container" style="display: none; margin-top: 20px;">
+        <div style="
+          width: 100%;
+          height: 8px;
+          background: #e0e0e0;
+          border-radius: 4px;
+          overflow: hidden;
+          margin-bottom: 10px;
+        ">
+          <div id="progress-fill" style="
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50 0%, #45a049 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+          "></div>
+        </div>
+        <p id="progress-text" style="text-align: center; color: #666; margin: 0; font-size: 14px;">0/0 completed</p>
+      </div>
+
+      <!-- Results List -->
+      <div id="results-list" style="display: none; margin-top: 20px; max-height: 300px; overflow-y: auto;"></div>
+
+      <!-- Buttons -->
+      <div id="button-container" style="display: flex; gap: 10px; margin-top: 20px;">
+        <button id="modal-cancel" style="
+          flex: 1;
+          padding: 12px;
+          border: none;
+          border-radius: 6px;
+          background: #e0e0e0;
+          color: #333;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 14px;
+        ">CANCEL</button>
+        <button id="modal-confirm" style="
+          flex: 1;
+          padding: 12px;
+          border: none;
+          border-radius: 6px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 14px;
+        ">CONFIRM & START</button>
+      </div>
+    </div>
+  </div>
+</div>

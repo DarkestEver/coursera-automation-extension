@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Coursera Progress Automation",
+  "version": "1.0.0",
+  "description": "Automate Coursera course progress tracking",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.coursera.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Coursera Progress Automation"
+  },
+  "icons": {
+    "128": "images/icon.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.coursera.org/learn/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coursera Progress Automation</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Coursera Progress</h1>
+      <p class="subtitle">Automation Tool</p>
+    </div>
+
+    <div class="content">
+      <!-- User ID Input Section -->
+      <div class="section" id="userIdSection">
+        <label for="userIdInput">User ID (Auto-detected):</label>
+        <input
+          type="text"
+          id="userIdInput"
+          placeholder="Click 'Scan Page' to auto-fill your User ID"
+          class="input-field"
+        >
+        <small class="hint">Auto-filled from your Coursera session. Edit to override if needed.</small>
+      </div>
+
+      <!-- Status Section -->
+      <div class="section" id="statusSection" style="display: none;">
+        <div class="status-box">
+          <p id="pageStatus" class="status-text"></p>
+        </div>
+      </div>
+
+      <!-- Course Info Section -->
+      <div class="section" id="courseInfoSection" style="display: none;">
+        <div class="info-box">
+          <div id="courseInfo"></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="section button-group">
+        <button id="scanButton" class="btn btn-primary">Scan Page</button>
+        <button id="processButton" class="btn btn-success" style="display: none;">Start Process</button>
+      </div>
+
+      <!-- Progress Section -->
+      <div class="section" id="progressSection" style="display: none;">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p id="progressText" class="progress-text">0/0 completed</p>
+        </div>
+        <div id="progressList" class="progress-list"></div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="section" id="errorSection" style="display: none;">
+        <div class="error-box">
+          <p id="errorMessage"></p>
+          <small>Please navigate to a Coursera course page first.</small>
+          <p class="example-link">Example: <code>https://www.coursera.org/learn/source-systems-data-ingestion-and-pipelines/home/welcome</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <small>v1.0.0 | Made for Coursera</small>
+    </div>
+  </div>
+
+  <!-- Modal Dialog -->
+  <div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Confirm Action</h2>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalMessage"></p>
+        <div id="linkTypesSummary" class="links-summary"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="modalCancel" class="btn btn-secondary">Cancel</button>
+        <button id="modalConfirm" class="btn btn-primary">Confirm & Start</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
