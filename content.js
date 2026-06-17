@@ -254,6 +254,13 @@ function scanAllLinks() {
 
     if (!itemId) return;
 
+    // Skip links that have already been processed (success icon present)
+    const successIcon = link.querySelector('svg[data-testid="learn-item-success-icon"]');
+    if (successIcon) {
+      console.log('⊘ Skipping already processed link:', itemId);
+      return;
+    }
+
     links.push({
       type,
       itemId,
