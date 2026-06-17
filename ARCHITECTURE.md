@@ -231,41 +231,6 @@ Input:  "/learn/python-for-data/supplement/YD08f/batch-tools"
 Output: "YD08f"
 ```
 
-## API Endpoints
-
-### Type 1: Lecture (Video Events)
-```
-Endpoint: /api/opencourse.v1/user/{userId}/course/{courseSlug}/item/{itemId}/lecture/videoEvents/ended
-
-Method:   POST
-Payload:  {"contentRequestBody": {}}
-Purpose:  Mark lecture video as watched/completed
-Response: {status: 200}
-```
-
-**Used for**:
-- Lecture videos
-- Course videos
-
-### Type 2: Supplement (On-Demand Completions)
-```
-Endpoint: /api/onDemandSupplementCompletions.v1
-
-Method:   POST
-Payload:  {
-  "userId": 131576213,
-  "courseId": "mqlYA8RuEe6kghKtIX5xRw",
-  "itemId": "YD08f"
-}
-Purpose:  Mark supplement/lab/assignment as completed
-Response: {status: 201}
-```
-
-**Used for**:
-- Supplemental materials
-- Ungraded labs
-- Assignments
-
 ## State Management
 
 ### Popup State Variables

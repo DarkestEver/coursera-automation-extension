@@ -81,19 +81,6 @@ Click the **Scan Page** button to:
 2. Go to Local Storage → coursera.org
 3. Search for `userId` or `user_id`
 
-## API Endpoints Used
-
-### Lectures
-```
-POST https://www.coursera.org/api/opencourse.v1/user/{userId}/course/{courseSlug}/item/{itemId}/lecture/videoEvents/ended
-```
-
-### Supplements/Labs/Assignments
-```
-POST https://www.coursera.org/api/onDemandSupplementCompletions.v1
-Payload: {"userId": 131576213, "courseId": "xyz", "itemId": "abc"}
-```
-
 ## Architecture
 
 ### Files
