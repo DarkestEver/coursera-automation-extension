@@ -273,6 +273,14 @@ function displayProgress(results) {
   });
 }
 
+// Listen for reset message from content script (when modal closes)
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'resetPopup') {
+    resetPopup();
+    console.log('Popup reset from content script');
+  }
+});
+
 // Handle process button click
 processButton.addEventListener('click', () => {
   if (currentPageData) {

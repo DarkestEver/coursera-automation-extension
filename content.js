@@ -530,6 +530,21 @@ async function processLinksOnPage(data) {
   }
   const cancelBtn = document.getElementById('modal-cancel');
   const confirmBtn = document.getElementById('modal-confirm');
-  if (cancelBtn) cancelBtn.textContent = 'CLOSE';
+  if (cancelBtn) {
+    cancelBtn.textContent = 'CLOSE';
+    cancelBtn.onclick = () => {
+      const modal = document.getElementById('coursera-automation-modal');
+      if (modal) modal.style.display = 'none';
+
+      // Send reset message to popup
+      chrome.runtime.sendMessage({ action: 'resetPopup' }, (response) => {
+        if (chrome.runtime.lastError) {
+          console.log('Popup may be closed');
+        } else {
+          console.log('✓ Popup reset message sent');
+        }
+      });
+    };
+  }
   if (confirmBtn) confirmBtn.style.display = 'none';
 }
